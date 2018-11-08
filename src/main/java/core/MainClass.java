@@ -3,6 +3,7 @@ package core;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.PageFactory;
 
 import java.util.concurrent.TimeUnit;
 
@@ -20,7 +21,8 @@ public class MainClass {
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.get("https://github.com/");
 
-        MainPage mainPage = new MainPage(driver);
+        //MainPage mainPage = new MainPage(driver);
+        MainPage mainPage = PageFactory.initElements(driver, MainPage.class);
 
         mainPage.register("testuser", "user@mail.ru", "jfdljf");
 
