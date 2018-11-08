@@ -28,16 +28,23 @@ public class MainPageTest {
     }
 
     @Test
-    public void signIn() {
+    public void signInTest() {
         LoginPage loginPage = mainPage.clickSignIn();
         String heading = loginPage.getHeadingText();
         Assert.assertEquals("Sign in to GitHub", heading);
     }
 
+    @Test
+
+    public void registerFailTest(){
+        SignUpPage signUpPage = mainPage.register("fdfsdf", "fsdf@mail.ru", "ffa33f");
+        signUpPage.
+
+    }
+
     @After
     public void tearDown() {
         driver.quit();
-
     }
 }
 
