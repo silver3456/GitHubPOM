@@ -15,7 +15,7 @@ public class MainPage {
 
     private By signInButton = By.xpath("//a[text() = 'Sign in']");
     private By signUpButton = By.xpath("//a[text()= 'Sign up']");
-    private By userNameField = By.xpath("//a[text()= 'Sign up']");
+    private By userNameField = By.xpath(".//*[@id='user[login]']");
     private By emailField = By.xpath("//*[@id='user[email]']");
     private By passwordField = By.xpath("//*[@id='user[password]']");
     private By signUpFormButton = By.xpath("//p[contains(@class, 'form-control-note mb-0 text-center')]" +

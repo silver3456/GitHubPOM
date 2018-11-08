@@ -38,7 +38,8 @@ public class MainPageTest {
 
     public void registerFailTest(){
         SignUpPage signUpPage = mainPage.register("fdfsdf", "fsdf@mail.ru", "ffa33f");
-        signUpPage.
+        String error = signUpPage.getMainErrorText();
+        Assert.assertEquals("There were problems creating your account.", error);
 
     }
 
