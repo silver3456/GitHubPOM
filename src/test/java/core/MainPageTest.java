@@ -50,6 +50,14 @@ public class MainPageTest {
         Assert.assertEquals("Login can't be blank", error);
     }
 
+    @Test
+
+    public void signUpInvalidEmailTest(){
+        SignUpPage signUpPage = mainPage.register("afpp", "@mail.ru", "sleedfj&");
+        String error = signUpPage.getEmailErrorText();
+        Assert.assertEquals("Email is invalid or already taken", error);
+    }
+
     @After
     public void tearDown() {
         driver.quit();
