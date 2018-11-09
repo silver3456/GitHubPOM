@@ -40,7 +40,14 @@ public class MainPageTest {
         SignUpPage signUpPage = mainPage.register("fdfsdf", "fsdf@mail.ru", "ffa33f");
         String error = signUpPage.getMainErrorText();
         Assert.assertEquals("There were problems creating your account.", error);
+    }
 
+    @Test
+
+    public void signUpEmptyUsernameTest(){
+        SignUpPage signUpPage = mainPage.register("", "fdsfsdf7@mail.ru", "sldfj&");
+        String error = signUpPage.getUserNameErrorText();
+        Assert.assertEquals("Login can't be blank", error);
     }
 
     @After
