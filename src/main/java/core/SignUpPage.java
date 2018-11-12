@@ -17,9 +17,9 @@ public class SignUpPage {
     private By passwordField = By.xpath("//input[@id = 'user_password']");
     private By signUpButton = By.xpath(".//*[@id = 'signup_button']");
     private By mainError = By.xpath(".//*[@name ='user[login]']/preceding::div[@class='flash flash-error my-3']");
-    private By userNameError = By.xpath(".//*[@id='user_login']/ancestor::dd//following-sibling::dd");
+    private By userNameError = By.xpath(".//*[@id='user_login']/following::p[@class = 'note'][1]");
     private By emailError = By.xpath(".//*[@id='user_email']/ancestor::dd//following-sibling::dd");
-    private By passwordError = By.xpath(".//*[@id='user_password']/ancestor::dd//following-sibling::dd");
+    private By passwordError = By.xpath(".//*[@id='user_password']/following::p[@class = 'note']");
 
 
     public SignUpPage typeUserName(String username) {
