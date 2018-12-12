@@ -12,7 +12,6 @@ public class LoginPage {
     }
 
 
-
     private By loginField = By.xpath("//input[@id='login_field']");
     private By passwordField = By.xpath("//input[@id='password']");
     private By signInButton = By.xpath("//input[@type ='submit']");
