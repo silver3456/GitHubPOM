@@ -16,7 +16,7 @@ public class LoginPageTest {
     private LoginPage loginPage;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-fullscreen");
         driver = new ChromeDriver(options);
@@ -26,21 +26,29 @@ public class LoginPageTest {
     }
 
     @Test
-    public void loginWithEmptyCreds(){
+    public void loginWithEmptyCreds() {
         LoginPage newLoginPage = loginPage.loginWithInvalidCreds("", "");
         String error = newLoginPage.getErrorText();
         Assert.assertEquals("Incorrect username or password.", error);
     }
 
     @Test
-    public void loginWithIncorrectCreds(){
+    public void loginWithIncorrectCreds() {
         LoginPage newLoginPage = loginPage.loginWithInvalidCreds("fdsf", "fdsf");
         String error = newLoginPage.getErrorText();
         Assert.assertEquals("Incorrect username or password.", error);
     }
 
     @Test
-    public void createAccTest(){
+    public void loginWithCorrectCreds() {
+        loginPage.loginWithInvalidCreds("alex.malkinn@gmail.com", "Silver@3456");
+        //Boolean verificationLocator = loginPage.getLoginVerificationLocator();
+        Assert.assertTrue("Expected result:", true);
+
+    }
+
+    @Test
+    public void createAccTest() {
         SignUpPage signUpPage = loginPage.createAccount();
         String heading = signUpPage.getHeadingText();
         Assert.assertEquals("Join GitHub", heading);
@@ -48,7 +56,7 @@ public class LoginPageTest {
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() {
         driver.quit();
     }
 }

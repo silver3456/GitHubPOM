@@ -18,6 +18,7 @@ public class LoginPage {
     private By heading = By.xpath("//div[contains(@class, 'auth-form-header')]/h1");
     private By error = By.xpath("//div[@id ='js-flash-container']//div[@class = 'container']");
     private By createAccLink = By.xpath("//a[text() = 'Create an account']");
+    private By searchRepoBox = By.xpath(".//*[contains(@aria-label, 'Search or jump to')]/child::*");
 
     public LoginPage typeUsername(String username) {
         driver.findElement(loginField).sendKeys(username);
@@ -36,16 +37,27 @@ public class LoginPage {
         return new LoginPage(driver);
     }
 
+    public LoginPage loginWithCorrectCreds(String username, String password) {
+        this.typeUsername(username);
+        this.typePassword(password);
+        driver.findElement(signInButton).click();
+        return new LoginPage(driver);
+    }
+
     public String getHeadingText() {
         return driver.findElement(heading).getText();
     }
 
-    public String getErrorText(){
+    public String getErrorText() {
         return driver.findElement(error).getText();
     }
 
-    public SignUpPage createAccount(){
+    public SignUpPage createAccount() {
         driver.findElement(createAccLink).click();
         return new SignUpPage(driver);
+    }
+
+    public Boolean getLoginVerificationLocator() {
+        return driver.findElement(searchRepoBox).isDisplayed();
     }
 }
