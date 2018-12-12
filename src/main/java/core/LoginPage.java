@@ -37,7 +37,7 @@ public class LoginPage {
         return new LoginPage(driver);
     }
 
-    public LoginPage loginWithCorrectCreds(String username, String password) {
+    public LoginPage loginWithValidCreds(String username, String password) {
         this.typeUsername(username);
         this.typePassword(password);
         driver.findElement(signInButton).click();

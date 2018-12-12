@@ -41,9 +41,9 @@ public class LoginPageTest {
 
     @Test
     public void loginWithCorrectCreds() {
-        loginPage.loginWithInvalidCreds("alex.malkinn@gmail.com", "Silver@3456");
-        //Boolean verificationLocator = loginPage.getLoginVerificationLocator();
-        Assert.assertTrue("Expected result:", true);
+        loginPage.loginWithValidCreds("alex.malkinn@gmail.com", "Silver@3456");
+        Boolean searchBoxDisplayed = loginPage.getLoginVerificationLocator();
+        Assert.assertTrue("Expected result:", searchBoxDisplayed);
 
     }
 
