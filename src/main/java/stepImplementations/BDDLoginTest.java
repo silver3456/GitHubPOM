@@ -40,5 +40,6 @@ public class BDDLoginTest {
     public void user_gets_confirmation() {
         System.out.println("User gets confirmation");
         Assert.assertTrue(loginPage.getLoginVerificationLocator());
+        driver.quit();
     }
 }
