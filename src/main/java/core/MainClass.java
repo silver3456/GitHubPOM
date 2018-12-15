@@ -21,10 +21,10 @@ public class MainClass {
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.get("https://github.com/");
 
-        MainPage mainPage = new MainPage(driver);
-        //MainPage mainPage = PageFactory.initElements(driver, MainPage.class);
+        //MainPage mainPage = new MainPage(driver);
+        MainPage mainPage = PageFactory.initElements(driver, MainPage.class);
 
-        mainPage.register("testuser", "user@mail.ru", "jfdljf");
+        mainPage.register("testuhjjg", "usnmn.ru", "jmmjf");
 
     }
 }
