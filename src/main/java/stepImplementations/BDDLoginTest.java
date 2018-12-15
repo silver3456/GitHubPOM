@@ -1,6 +1,8 @@
 package stepImplementations;
 
 import core.LoginPage;
+import cucumber.api.java.After;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -36,10 +38,28 @@ public class BDDLoginTest {
         loginPage.loginWithValidCreds("alex.malkinn@gmail.com", "Silver@3456");
     }
 
+    @When("^user enters email (.*)$")
+    public void user_enters_username(String username) {
+        System.out.println("TESTING: " + username);
+        loginPage.typeUsername(username);
+
+    }
+
+    @And("^user enters password (.*)$")
+    public void user_enters_password(String password) {
+        loginPage.typePassword(password);
+        loginPage.clickSignInButton();
+
+    }
+
     @Then("^user gets confirmation$")
     public void user_gets_confirmation() {
         System.out.println("User gets confirmation");
         Assert.assertTrue(loginPage.getLoginVerificationLocator());
+    }
+
+    @After
+    public void tearDown() {
         driver.quit();
     }
 }

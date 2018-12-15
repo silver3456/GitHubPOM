@@ -60,4 +60,8 @@ public class LoginPage {
     public Boolean getLoginVerificationLocator() {
         return driver.findElement(searchRepoBox).isDisplayed();
     }
+
+    public void clickSignInButton() {
+        driver.findElement(signInButton).click();
+    }
 }
