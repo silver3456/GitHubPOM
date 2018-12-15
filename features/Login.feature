@@ -12,10 +12,10 @@ Feature: Test the login functionality on GitHub
     Then user gets confirmation
 
     Examples:
-      | username         | password |
-      | tim@testmail.com | trpass   |
-      | rw@testmail.com  | rwpass   |
-      | jv@t3amail.com   | jvpass   |
+      | username          | password |
+      | tim@testmail.com  | trpass   |
+      | rw@testmail.com   | rwpass   |
+      | jv@t3testmail.com | jvpass   |
 
 
 

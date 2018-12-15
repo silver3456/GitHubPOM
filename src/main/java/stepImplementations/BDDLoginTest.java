@@ -2,6 +2,7 @@ package stepImplementations;
 
 import core.LoginPage;
 import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -19,14 +20,18 @@ public class BDDLoginTest {
     private WebDriver driver;
     private LoginPage loginPage;
 
-    @Given("^user is on login page$")
-    public void user_is_on_login_page() {
-        System.out.println("User is on the login page");
-
+    @Before
+    public void init() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-fullscreen");
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
+    }
+
+    @Given("^user is on login page$")
+    public void user_is_on_login_page() {
+        System.out.println("User is on the login page");
         driver.get("https://github.com/login/");
     }
 
