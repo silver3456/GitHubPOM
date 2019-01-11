@@ -52,11 +52,17 @@ public class LoginPageTest {
         SignUpPage signUpPage = loginPage.createAccount();
         String heading = signUpPage.getHeadingText();
         Assert.assertEquals("Join GitHub", heading);
+    }
+
+    @Test
+    public void changeAvatarTest() throws InterruptedException {
+        loginWithCorrectCreds();
+        loginPage.changeAvatar("/Users/alexander/SDET_Files/image.jpg");
 
     }
 
     @After
     public void tearDown() {
-        driver.quit();
+        //driver.quit();
     }
 }

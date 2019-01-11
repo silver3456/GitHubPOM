@@ -2,6 +2,7 @@ package core;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.FindBy;
 
 public class LoginPage {
 
@@ -19,6 +20,11 @@ public class LoginPage {
     private By error = By.xpath("//div[@id ='js-flash-container']//div[@class = 'container']");
     private By createAccLink = By.xpath("//a[text() = 'Create an account']");
     private By searchRepoBox = By.xpath(".//*[contains(@aria-label, 'Search or jump to')]/child::*");
+    private By profileImage = By.xpath("//*[@class = 'dropdown-caret']");
+    private By yourProfileLink = By.xpath("//a[text() = 'Your profile']");
+    private By editProfileButton = By.xpath("//*[@class = 'octicon octicon-pencil']");
+    private By uploadPicButton = By.xpath("//input[@type = 'file']");
+    private By setProfilePicButton = By.xpath(".//*[contains(@class, 'btn btn-primary btn-block')]");
 
     public LoginPage typeUsername(String username) {
         driver.findElement(loginField).sendKeys(username);
@@ -63,5 +69,15 @@ public class LoginPage {
 
     public void clickSignInButton() {
         driver.findElement(signInButton).click();
+    }
+
+    public void changeAvatar(String picture) throws InterruptedException {
+        driver.findElement(profileImage).click();
+        driver.findElement(yourProfileLink).click();
+        driver.findElement(editProfileButton).click();
+        driver.findElement(uploadPicButton).sendKeys(picture);
+
+        Thread.sleep(20000);
+        driver.findElement(setProfilePicButton).click();
     }
 }
